@@ -1,0 +1,60 @@
+*{
+  color: black;
+}
+
+a{
+  color: orange;
+}
+
+body{
+  background-color: #fff;
+}
+
+.card-header{
+  background-color: white;
+}
+
+.navbar-laravel{
+  background-color: #333;
+  color: #fff !important;
+}
+
+.brand-plus{
+  color: orange;
+  font-size: 24px;
+}
+
+.nav-link{
+  color: #f8fafc !important;
+  /* text-decoration: underline dotted; */
+}
+
+#navbarDropdown{
+  color: #fff !important;
+}
+
+.navbar-brand{
+  color: #fff !important;
+  font-size: 24px;
+}
+
+.add-tasks-button{
+  font-size: 14.4px;
+  margin: auto;
+  padding: 0px 9px;
+  width: max-content;
+  /* width: 120px; */
+  /* height: 36px; */
+  background-color: #333;
+  color: white;
+  border-radius: 6px;
+  border: solid 3px #333 ;
+  transition: .4s;
+}.add-tasks-button:hover{
+  text-decoration: none !important;
+  background-color: white;
+  color: #333;
+}
+.add-tasks-button-link:hover{
+  text-decoration: none !important;
+}
