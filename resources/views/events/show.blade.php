@@ -7,7 +7,7 @@
       <div class="card mb-4">
           <div class="card-header">{{$event->title}}  イベンター:{{$event->eventer->screen_name}}</div>
           @foreach ($tasks as $task)
-          <p>{{$task->title}} {{$task->description}}</p>
+          <p><a href="/task/auction/{{$task->id}}">{{$task->title}}</a> {{$task->description}}</p>
           @endforeach
       </div>  
       <a class="add-tasks-button-link" href="/event/createTask/{{$event->id}}"><div class="add-tasks-button"><span class="brand-plus">+</span> タスクを追加</div></a>

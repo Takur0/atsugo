@@ -53,6 +53,4 @@ class EventsController extends Controller
     $tasks = Task::where('event_id', $id)->get();
     return view('events.createTasks')->with('event', $event)->with('tasks', $tasks);
   }
-
-
 }

@@ -22,6 +22,8 @@ Route::post('/event/create', 'EventsController@create');
 Route::get('/event/show/{id}', 'EventsController@show');
 Route::get('/event/createTask/{id}', 'EventsController@create_tasks');
 Route::post('/event/addTask/{id}', 'EventsController@add_tasks');
+Route::get('/task/auction/{id}', 'TasksController@auction');
+Route::post('/task/bid/{id}', 'TasksController@bid');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
