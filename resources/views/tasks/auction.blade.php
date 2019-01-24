@@ -15,7 +15,6 @@
   
               <div class="col-md-6">
                   <input id="amount" type="number" class="form-control" name="amount" value="{{ old('amount') }}" required autofocus>
-  
                   @if ($errors->has('amount'))
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $errors->first('amount') }}</strong>

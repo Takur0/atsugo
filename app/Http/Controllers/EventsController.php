@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\User;
 use App\Event;
 use App\Task;
+use App\Join;
 use Auth;
 
 class EventsController extends Controller
@@ -18,7 +20,8 @@ class EventsController extends Controller
   }
 
   public function new(){
-    return view('events.new')->with('now', Carbon::now()->toDateString());
+    $users = User::where('id', '>=', 1)->get();
+    return view('events.new')->with('now', Carbon::now()->toDateString())->with('users', $users);
   }
 
   public function create(Request $request){
@@ -28,6 +31,14 @@ class EventsController extends Controller
     $event->held_at = $request->held_at;
     $event->is_bided_by_all = 0;
     $event->save();
+    foreach($request->members as $added_member){
+      $join = new Join();
+      $join->event_id = $event->id;
+      $user = User::where('screen_name', $added_member)->first();
+      $join->joiner_id = $user->id;
+      $join->save();
+    }
+    
     return redirect('/');
   }
 
