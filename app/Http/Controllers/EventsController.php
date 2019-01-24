@@ -29,14 +29,13 @@ class EventsController extends Controller
     $event->title = $request->title;
     $event->eventer_id = Auth::user()->id;
     $event->held_at = $request->held_at;
-    $event->is_bided_by_all = 0;
+    $event->is_ended = false;
     $event->save();
     $user = Auth::user();
     $join = new Join();
     $join->event_id = $event->id;
     $join->joiner_id = $user->id;
     $join->save();
-
     foreach($request->members as $added_member){
       $user = User::where('screen_name', $added_member)->first();
       if($user->id == Auth::user()->id){
@@ -68,6 +67,7 @@ class EventsController extends Controller
     $task->title = $request->title;
     $task->description = $request->description;
     $task->event_id = $id;
+    $task->is_bided_by_all = false;
     $task->save();
     $tasks = Task::where('event_id', $id)->get();
     return view('events.createTasks')->with('event', $event)->with('tasks', $tasks);
