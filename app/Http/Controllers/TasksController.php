@@ -26,5 +26,4 @@ class TasksController extends Controller
       $tasks = Task::where('event_id', $event->id)->get();
       return view('events.show')->with('event', $event)->with('tasks', $tasks);
     }
-    
 }

@@ -6,9 +6,9 @@ $(function () {
         hitNum,
         AddedUsers = [];
 
-        $('.added-member').each(function(){
-          AddedUsers.push($(this).text());
-        });
+    $('.added-member').each(function(){
+      AddedUsers.push($(this).text());
+    });
 
     // 検索結果を格納するための配列を用意
     searchResult = [];

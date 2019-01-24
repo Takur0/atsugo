@@ -65,7 +65,6 @@
     </div>
   </div>
 </div>
-
 <table class="hidden　all-users-table">
   <tbody>
     @foreach ($users as $user)

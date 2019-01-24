@@ -31,14 +31,22 @@ class EventsController extends Controller
     $event->held_at = $request->held_at;
     $event->is_bided_by_all = 0;
     $event->save();
+    $user = Auth::user();
+    $join = new Join();
+    $join->event_id = $event->id;
+    $join->joiner_id = $user->id;
+    $join->save();
+
     foreach($request->members as $added_member){
+      $user = User::where('screen_name', $added_member)->first();
+      if($user->id == Auth::user()->id){
+        continue;
+      }
       $join = new Join();
       $join->event_id = $event->id;
-      $user = User::where('screen_name', $added_member)->first();
       $join->joiner_id = $user->id;
       $join->save();
     }
-    
     return redirect('/');
   }
 
