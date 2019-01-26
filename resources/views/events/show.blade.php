@@ -7,6 +7,9 @@
 
       <div class="card mb-4">
         <div class="card-header">
+        	<div class="event-title">
+        		{{$event->title}} 
+        	</div>
           <div class="h3">{{$event->title}} </div>
           <a href="#" class="del" data-id="{{ $event->id }}">delete</a>
           <form method="post" action="/event/destroy/{{$event->id}}" id="form_{{ $event->id }}">
@@ -15,7 +18,7 @@
           </form>
         </div>
         <div class="p-3">
-          <p class="h5 pb-2">タスク一覧</p>
+          <p class="pb-2">タスク一覧</p>
 
           @foreach ($tasks as $task)
           <a href="/task/auction/{{$task->id}}">
@@ -56,5 +59,3 @@
     </div>
   </div>
 </div>
-
-@endsection

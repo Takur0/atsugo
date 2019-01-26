@@ -1,5 +1,6 @@
 *{
   color: black;
+  font-size:20px;
 }
 
 a{
@@ -15,14 +16,15 @@ body{
 
 
 .task{
-  font-size: 24px;
+  font-size: 25px;
 }
 .task-list{
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 20px;
   border: solid 0.1px #333;
   box-shadow: 0px 2px 3px rgba(0,0,0,0.6);
-  background-color: rgba(250, 219, 192);
+  background-color:#F0F0F0;
+	
 }.task-list:hover{
   background-color: rgb(255, 255, 255);
 }
@@ -42,7 +44,7 @@ body{
 
 .brand-plus{
   color: orange;
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .nav-link{
@@ -56,14 +58,14 @@ body{
 
 .navbar-brand{
   color: #fff !important;
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .add-tasks-button-link{
   text-decoration: none !important;
 }
 .add-tasks-button{
-  font-size: 14.4px;
+  font-size: 15px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px 14px;
@@ -86,7 +88,7 @@ body{
 }
 .add-money-button{
   font-size: 14.4px;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px 14px;
@@ -118,7 +120,8 @@ body{
   padding: 20px;
 }
 .display-money-show{
-  font-size: 24px;
+  font-size: 20px;
+  color:#a7a7a7;
 }
 
 #added-members{
@@ -166,6 +169,7 @@ table tbody tr td{
   padding: 0px;
   font-size: 0px;
 }
+/**********************index***************************/
 .event-list-h{
   margin:0px 0px 15px 0px;
   font-size:25px;
@@ -173,14 +177,14 @@ table tbody tr td{
 }
 .event-title{
   margin:5px 0px;
-  font-size:30px;
+  font-size:25px;
   font-weight:bold;
   text-align:center;
   color:#FF731C;
 }
 #event-list .event-eventer{
   margin:5px 0px;
-  font-size:19px;
+  font-size:20px;
   text-align:center;
 }
 #event-list .card-header{
@@ -188,7 +192,10 @@ table tbody tr td{
   padding:8px 20px;
   background-color:#F0F0F0;
 }
+/**********************index***************************/
 .event-back{
   color: white;
   background-color: #333;
+  width:300px;
+  text-align:center;
 }

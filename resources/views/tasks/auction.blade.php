@@ -22,13 +22,16 @@
                   @endif
               </div>
           </div>
-  
           <div class="form-group row mb-0">
               <div class="col-md-8 offset-md-4">
+                 <div class="text-center pt-4">
                   <button type="submit" class="btn btn-primary">
                       {{ __('OK') }}
                   </button>
-  
+                  <div>
+                	<a href="/event/show/{{$task->event->id}}" class="btn btn-primary mt-4 pl-5 pr-5 pt-2 pb-2 event-back">イベントページに戻る</a>
+            		</div>
+				  </div>
               </div>
           </div>
       </form>

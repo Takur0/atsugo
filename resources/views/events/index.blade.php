@@ -19,6 +19,9 @@
       	</div>  
       @endforeach
       </div>
+      <a href="http://127.0.0.1:8000/event/new" class="dropdown-item">
+      <div class="add-tasks-button"><span class="brand-plus">+</span> 新規イベント</div>
+                                    </a>
     </div>
   </div>
 </div>
