@@ -7,10 +7,12 @@
 
       <div class="card mb-4">
         <div class="card-header">
-          <div class="h3">{{$event->title}} </div>
+        	<div class="event-title">
+        		{{$event->title}} 
+        	</div>
         </div>
         <div class="p-3">
-          <p class="h5 pb-2">タスク一覧</p>
+          <p class="pb-2">タスク一覧</p>
 
           @foreach ($tasks as $task)
           <a href="/task/auction/{{$task->id}}">
