@@ -7,15 +7,7 @@
 
       <div class="card mb-4">
         <div class="card-header">
-        	<div class="event-title">
-        		{{$event->title}} 
-        	</div>
-          <div class="h3">{{$event->title}} </div>
-          <a href="#" class="del" data-id="{{ $event->id }}">delete</a>
-          <form method="post" action="/event/destroy/{{$event->id}}" id="form_{{ $event->id }}">
-            {{ csrf_field() }}
-            {{ method_field('delete') }}
-          </form>
+          <div class="event-title">{{$event->title}} </div>
         </div>
         <div class="p-3">
           <p class="pb-2">タスク一覧</p>
@@ -35,11 +27,11 @@
 
       <div>
         <a class="add-tasks-button-link" href="/event/createTask/{{$event->id}}">
-          <div class="add-tasks-button"><span class="brand-plus">+</span> タスクを追加</div>
+          <div class="add-tasks-button"><span class="brand-plus">+</span>タスクを追加</div>
         </a>
         <!-- 金額を追加するページ -->
         <a class="add-money-button-link" href="/event/addCost/{{$event->id}}">
-          <div class="add-money-button"><span class="brand-plus">+</span> 金額を追加</div>
+			<div class="add-money-button"><center><span class="brand-plus">+</span><span class="plus-sentence">金額を追加</span></center></div>
         </a>
       <div>
 
@@ -54,8 +46,13 @@
           <div class="display-money-show"><span></span></div>
         </div>
       </div>
-
-
+      <center>
+		<a href="#" class="del" data-id="{{ $event->id }}">イベントを消去</a>
+          <form method="post" action="/event/destroy/{{$event->id}}" id="form_{{ $event->id }}">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+          </form>
+	</center>
     </div>
   </div>
 </div>

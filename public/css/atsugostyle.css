@@ -42,11 +42,6 @@ body{
   color: #fff !important;
 }
 
-.brand-plus{
-  color: orange;
-  font-size: 25px;
-}
-
 .nav-link{
   color: #f8fafc !important;
   /* text-decoration: underline dotted; */
@@ -61,49 +56,7 @@ body{
   font-size: 25px;
 }
 
-.add-tasks-button-link{
-  text-decoration: none !important;
-}
-.add-tasks-button{
-  font-size: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px 14px;
-  width: max-content;
-  /* width: 120px; */
-  /* height: 36px; */
-  background-color: #333;
-  color: white;
-  border-radius: 6px;
-  border: solid 3px #333 ;
-  transition: .1s;
-}.add-tasks-button:hover{
-  background-color: white;
-  color: #333;
-}
 
-
-.add-money-button-link{
-  text-decoration: none !important;
-}
-.add-money-button{
-  font-size: 14.4px;
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px 14px;
-  width: max-content;
-  /* width: 120px; */
-  /* height: 36px; */
-  background-color: #333;
-  color: white;
-  border-radius: 6px;
-  border: solid 3px #333 ;
-  transition: .1s;
-}.add-money-button:hover{
-  background-color: white;
-  color: #333;
-}
 
 .display-money{
   margin-left: auto;
@@ -194,9 +147,79 @@ table tbody tr td{
   background-color:#F0F0F0;
 }
 /**********************index***************************/
+/**********************button***************************/
 .event-back{
   color: white;
   background-color: #333;
   width:300px;
   text-align:center;
+}
+.del{
+  font-size: 20px;
+  margin-top: 25px;
+  padding: 10px 30px;
+  width: 700px;
+  /* height: 36px; */
+  background-color:red;
+  color: white;
+  border-radius: 30px;
+  transition: .1s;
+}
+.plus-sentence{
+  color: white;
+}
+
+.brand-plus{
+  color: orange;
+  font-size: 30px;
+}
+
+.add-tasks-button-link{
+  text-decoration: none !important;
+}
+.add-tasks-button{
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  /* width: 120px; */
+  /* height: 36px; */
+  background-color: #333;
+  color: white;
+  border: solid 3px #333 ;
+  font-size: 20px;
+  margin-top: 25px;
+  padding: 5px 15px;
+  /* height: 36px; */
+  border-radius: 30px;
+  transition: .1s;
+}
+
+.add-tasks-button:hover{
+  background-color: white;
+  color: #333;
+}
+
+.add-money-button-link{
+  text-decoration: none !important;
+}
+
+.add-money-button{
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  /* width: 120px; */
+  /* height: 36px; */
+  background-color: #333;
+  color: white;
+  border: solid 3px #333 ;
+  font-size: 15px;
+  margin-top: 25px;
+  padding: 5px 15px;
+  /* height: 36px; */
+  border-radius: 30px;
+  transition: .1s;
+}
+.add-money-button:hover{
+  background-color: white;
+  color: #333;
 }
