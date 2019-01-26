@@ -10,6 +10,12 @@
         	<div class="event-title">
         		{{$event->title}} 
         	</div>
+          <div class="h3">{{$event->title}} </div>
+          <a href="#" class="del" data-id="{{ $event->id }}">delete</a>
+          <form method="post" action="/event/destroy/{{$event->id}}" id="form_{{ $event->id }}">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+          </form>
         </div>
         <div class="p-3">
           <p class="pb-2">タスク一覧</p>
@@ -53,5 +59,3 @@
     </div>
   </div>
 </div>
-
-@endsection
