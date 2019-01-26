@@ -16,6 +16,10 @@ class Event extends Model
       return $this->hasMany('App\Task', 'event_id', 'id');
     }
 
+    public function costs(){
+      return $this->hasMany('App\Cost', 'event_id', 'id');
+    }
+
     public function count_members(){
       $count = Join::where('event_id', $this->id)->count();
       return $count;

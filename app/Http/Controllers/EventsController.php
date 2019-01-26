@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\User;
 use App\Event;
 use App\Task;
+use App\Cost;
 use App\Join;
 use App\Bid;
 use Auth;
@@ -53,9 +54,10 @@ class EventsController extends Controller
   public function show($id){
     $event = Event::where('id', $id)->first();
     $tasks = Task::where('event_id', $id)->get();
+    $costs = Cost::where('event_id', $id)->get();
     $date = new DateTime($event->held_at);
     $date_string = $date->format('m/d');
-    return view('events.show')->with('event', $event)->with('tasks', $tasks)->with('date', $date_string);
+    return view('events.show')->with('event', $event)->with('tasks', $tasks)->with('costs', $costs)->with('date', $date_string);
   }
 
   public function destroy($id){
@@ -72,9 +74,10 @@ class EventsController extends Controller
   public function create_tasks($id){
     $event = Event::where('id', $id)->first();
     $tasks = Task::where('event_id', $id)->get();
+    $costs = Cost::where('event_id', $id)->get();
     $date = new DateTime($event->held_at);
     $date_string = $date->format('m/d');
-    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks)->with('date', $date_string);
+    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks)->with('costs', $costs)->with('date', $date_string);
   }
 
   public function add_tasks(Request $request, $id){
@@ -88,6 +91,30 @@ class EventsController extends Controller
 
     return redirect()->action(
       'EventsController@create_tasks', ['id' => $id]
+    );
+  }
+
+  public function add_costs($id){
+    $event = Event::where('id', $id)->first();
+    $tasks = Task::where('event_id', $id)->get();
+    $costs = Cost::where('event_id', $id)->get();
+    $date = new DateTime($event->held_at);
+    $date_string = $date->format('m/d');
+    return view('events.addCosts')->with('event', $event)->with('tasks', $tasks)->with('costs', $costs)->with('date', $date_string);
+
+  }
+
+  public function create_costs(Request $request, $id){
+    $event = Event::where('id', $id)->first();
+    $cost = new Cost();
+    $cost->title = $request->title;
+    $cost->amount = $request->amount;
+    $cost->event_id = $id;
+    $cost->contributor_id = Auth::user()->id;
+    $cost->save();
+
+    return redirect()->action(
+      'EventsController@add_costs', ['id' => $id]
     );
   }
 

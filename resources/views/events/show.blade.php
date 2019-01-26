@@ -35,7 +35,7 @@
           <div class="add-tasks-button"><span class="brand-plus">+</span> タスクを追加</div>
         </a>
         <!-- 金額を追加するページ -->
-        <a class="add-money-button-link" href="#">
+        <a class="add-money-button-link" href="/event/addCost/{{$event->id}}">
           <div class="add-money-button"><span class="brand-plus">+</span> 金額を追加</div>
         </a>
       <div>
@@ -43,12 +43,12 @@
       <!-- 金額を表示するページ　-->
       <div class="display-money">
         <div class="display-money-amount">
-          <div>イベント総額</div>
-          <div class="display-money-show">総額を表示</div>
+          <div>費用の合計</div>
+          <div class="display-money-show"><span>¥{{$costs->sum('amount')}}</span></div>
         </div>
         <div class="display-money-pay">
           <div>あなたが支払う金額</div>
-          <div class="display-money-show">支払金額を表示</div>
+          <div class="display-money-show"><span></span></div>
         </div>
       </div>
 

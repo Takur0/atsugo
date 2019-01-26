@@ -23,6 +23,8 @@ Route::get('/event/show/{id}', 'EventsController@show');
 Route::delete('/event/destroy/{id}', 'EventsController@destroy');
 Route::get('/event/createTask/{id}', 'EventsController@create_tasks');
 Route::post('/event/addTask/{id}', 'EventsController@add_tasks');
+Route::get('/event/addCost/{id}', 'EventsController@add_costs');
+Route::post('/event/createCost/{id}', 'EventsController@create_costs');
 Route::get('/task/auction/{id}', 'TasksController@auction');
 Route::post('/task/bid/{id}', 'TasksController@bid');
 Auth::routes();
