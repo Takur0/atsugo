@@ -9,6 +9,7 @@ use App\Event;
 use App\Task;
 use App\Join;
 use Auth;
+use DateTime;
 
 class EventsController extends Controller
 {
@@ -52,13 +53,17 @@ class EventsController extends Controller
   public function show($id){
     $event = Event::where('id', $id)->first();
     $tasks = Task::where('event_id', $id)->get();
-    return view('events.show')->with('event', $event)->with('tasks', $tasks);
+    $date = new DateTime($event->held_at);
+    $date_string = $date->format('m/d');
+    return view('events.show')->with('event', $event)->with('tasks', $tasks)->with('date', $date_string);
   }
 
   public function create_tasks($id){
     $event = Event::where('id', $id)->first();
     $tasks = Task::where('event_id', $id)->get();
-    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks);
+    $date = new DateTime($event->held_at);
+    $date_string = $date->format('m/d');
+    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks)->with('date', $date_string);
   }
 
   public function add_tasks(Request $request, $id){
@@ -70,6 +75,8 @@ class EventsController extends Controller
     $task->is_bided_by_all = false;
     $task->save();
     $tasks = Task::where('event_id', $id)->get();
-    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks);
+    $date = new DateTime($event->held_at);
+    $date_string = $date->format('m/d');
+    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks)->with('date', $date_string);
   }
 }
