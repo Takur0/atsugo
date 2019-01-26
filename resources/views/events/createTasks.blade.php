@@ -13,8 +13,8 @@
               {{$task->description}}
             </p>
             @endforeach
-
           </div>  
+
       <form method="POST" action="/event/addTask/{{$event->id}}">
         @csrf
 

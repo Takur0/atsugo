@@ -11,6 +11,7 @@
         </div>
         <div class="p-3">
           <p class="h5 pb-2">タスク一覧</p>
+
           @foreach ($tasks as $task)
           <a href="/task/auction/{{$task->id}}">
             <div class="task-list">
@@ -20,6 +21,7 @@
             </div>
           </a>
           @endforeach
+
         </div>
       </div>  
 
@@ -44,6 +46,7 @@
           <div class="display-money-show">支払金額を表示</div>
         </div>
       </div>
+
 
     </div>
   </div>
