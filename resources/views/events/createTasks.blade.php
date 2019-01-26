@@ -5,10 +5,15 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card mb-4">
-          <div class="card-header">{{$event->title}}  イベンター:{{$event->eventer->screen_name}}</div>
+          <div class="card-header h4">{{$event->title}}</div>
+            <p class="p-3 h6">タスク一覧</p>
             @foreach ($tasks as $task)
-              <p>{{$task->title}} {{$task->description}}</p>
+              <p class="p-3"><span class="h5">{{$task->title}}:</span>
+              &nbsp;&nbsp;
+              {{$task->description}}
+            </p>
             @endforeach
+
           </div>  
       <form method="POST" action="/event/addTask/{{$event->id}}">
         @csrf
@@ -40,17 +45,18 @@
                 @endif
             </div>
         </div>
-
-        <div class="form-group row mb-0">
-            <div class="col-md-8 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('Create') }}
-                </button>
-
+        
+        <div class="text-center pt-4">
+            <button type="submit" class="btn btn-primary pl-5 pr-5 pt-2 pb-2">
+                {{ __('Create') }}
+            </button>
+            <div>
+                <a href="/event/show/{{$event->id}}" class="btn btn-primary mt-4 pl-5 pr-5 pt-2 pb-2 event-back">イベントページに戻る</a>
             </div>
         </div>
-    </form>
-</div>
+        
+        </form>
+    </div>
   </div>
 </div>
 @endsection
