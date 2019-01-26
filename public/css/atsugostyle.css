@@ -105,3 +105,25 @@ table tbody tr td{
   padding: 0px;
   font-size: 0px;
 }
+.event-list-h{
+  margin:0px 0px 15px 0px;
+  font-size:25px;
+  text-align:center;
+}
+.event-title{
+  margin:5px 0px;
+  font-size:30px;
+  font-weight:bold;
+  text-align:center;
+  color:#FF731C;
+}
+#event-list .event-eventer{
+  margin:5px 0px;
+  font-size:19px;
+  text-align:center;
+}
+#event-list .card-header{
+  margin: 0px;
+  padding:8px 20px;
+  background-color:#F0F0F0;
+}
