@@ -5,11 +5,13 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card mb-4">
-          <div class="card-header">{{$event->title}}  イベンター:{{$event->eventer->screen_name}}</div>
+          <div class="card-header">
+            イベント名：{{$event->title}},  イベンター：{{$event->eventer->screen_name}}, 開催日：{{$date}}
+          </div>
             @foreach ($tasks as $task)
               <p>{{$task->title}} {{$task->description}}</p>
             @endforeach
-          </div>  
+          </div>
       <form method="POST" action="/event/addTask/{{$event->id}}">
         @csrf
 
