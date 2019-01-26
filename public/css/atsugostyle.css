@@ -131,6 +131,7 @@ body{
 }
 
 .added-member{
+  display: inline-block;
   padding: 2px 4px;
   width: fit-content;
   border-radius: 4px;
