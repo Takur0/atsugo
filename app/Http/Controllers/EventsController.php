@@ -8,12 +8,12 @@ use App\User;
 use App\Event;
 use App\Task;
 use App\Join;
+use App\Bid;
 use Auth;
 
 class EventsController extends Controller
 {
   //
-
   public function index(){
     $events = Event::where('id', '>=', 1)->latest()->get();
     return view('events.index')->with('events', $events);
@@ -55,6 +55,17 @@ class EventsController extends Controller
     return view('events.show')->with('event', $event)->with('tasks', $tasks);
   }
 
+  public function destroy($id){
+    $event = Event::where('id', $id)->first();
+    $tasks = Task::where('event_id', $event->id);
+    foreach($tasks as $task){
+      $bids = Bid::where('task_id', $task->id)->delete();
+    }
+    $tasks->delete();
+    $event->delete();
+    return redirect('/');
+  }
+
   public function create_tasks($id){
     $event = Event::where('id', $id)->first();
     $tasks = Task::where('event_id', $id)->get();
@@ -69,7 +80,12 @@ class EventsController extends Controller
     $task->event_id = $id;
     $task->is_bided_by_all = false;
     $task->save();
-    $tasks = Task::where('event_id', $id)->get();
-    return view('events.createTasks')->with('event', $event)->with('tasks', $tasks);
+    return redirect()->action(
+      'EventsController@create_tasks', ['id' => $id]
+    );
+  }
+
+  public function end(){
+    return 0;
   }
 }
