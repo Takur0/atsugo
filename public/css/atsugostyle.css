@@ -4,12 +4,33 @@
 
 a{
   color: orange;
+}a:hover{
+  text-decoration: none;
 }
 
 body{
   background-color: #fff;
 }
 
+
+
+.task{
+  font-size: 24px;
+}
+.task-list{
+  margin-bottom: 30px;
+  padding: 20px;
+  border: solid 0.1px #333;
+  box-shadow: 0px 2px 3px rgba(0,0,0,0.6);
+  background-color: rgba(250, 219, 192);
+}.task-list:hover{
+  background-color: rgb(255, 255, 255);
+}
+
+.card{
+  margin-top: 20px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+}
 .card-header{
   background-color: white;
 }
@@ -38,10 +59,14 @@ body{
   font-size: 24px;
 }
 
+.add-tasks-button-link{
+  text-decoration: none !important;
+}
 .add-tasks-button{
   font-size: 14.4px;
-  margin: auto;
-  padding: 0px 9px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 14px;
   width: max-content;
   /* width: 120px; */
   /* height: 36px; */
@@ -51,13 +76,49 @@ body{
   border: solid 3px #333 ;
   transition: .1s;
 }.add-tasks-button:hover{
-  text-decoration: none !important;
   background-color: white;
   color: #333;
 }
 
-.add-tasks-button-link:hover{
+
+.add-money-button-link{
   text-decoration: none !important;
+}
+.add-money-button{
+  font-size: 14.4px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 14px;
+  width: max-content;
+  /* width: 120px; */
+  /* height: 36px; */
+  background-color: #333;
+  color: white;
+  border-radius: 6px;
+  border: solid 3px #333 ;
+  transition: .1s;
+}.add-money-button:hover{
+  background-color: white;
+  color: #333;
+}
+
+.display-money{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: solid 0.1px #333;
+}
+.display-money-amount{
+  padding: 20px;
+  border-bottom: solid 0.1px #333;
+}
+.display-money-pay{
+  padding: 20px;
+}
+.display-money-show{
+  font-size: 24px;
 }
 
 #added-members{
@@ -104,4 +165,30 @@ table tbody tr td{
   border: 0px;
   padding: 0px;
   font-size: 0px;
+}
+.event-list-h{
+  margin:0px 0px 15px 0px;
+  font-size:25px;
+  text-align:center;
+}
+.event-title{
+  margin:5px 0px;
+  font-size:30px;
+  font-weight:bold;
+  text-align:center;
+  color:#FF731C;
+}
+#event-list .event-eventer{
+  margin:5px 0px;
+  font-size:19px;
+  text-align:center;
+}
+#event-list .card-header{
+  margin: 0px;
+  padding:8px 20px;
+  background-color:#F0F0F0;
+}
+.event-back{
+  color: white;
+  background-color: #333;
 }
