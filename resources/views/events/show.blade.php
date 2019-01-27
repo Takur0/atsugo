@@ -21,13 +21,26 @@
           <p class="pb-2">タスク一覧</p>
 
           @foreach ($tasks as $task)
-          <a href="/task/auction/{{$task->id}}">
+            @if (App\Bid::where('bidder_id', Auth::user()->id)->where('task_id', $task->id)->get() == '[]')
+              <a href="/task/auction/{{$task->id}}">
+                <div class="task-list">
+                  <span class="task">{{$task->title}}:</span>
+                  &nbsp;&nbsp;
+                  {{$task->description}}
+                </div>
+              </a>
+            @else
             <div class="task-list">
-              <span class="task">{{$task->title}}:</span>
-              &nbsp;&nbsp;
-              {{$task->description}}
-            </div>
-          </a>
+                  <span class="task">{{$task->title}}:</span>
+                  &nbsp;&nbsp;
+                  {{$task->description}}
+                  @if ($task->is_bided_by_all)
+                    {{$task->user()->screen_name}}によって 落札されました！
+                  @else
+                      
+                  @endif
+                </div>
+            @endif
           @endforeach
 
         </div>
@@ -47,11 +60,11 @@
       <div class="display-money">
         <div class="display-money-amount">
           <div>費用の合計</div>
-          <div class="display-money-show"><span>¥{{$costs->sum('amount')}}</span></div>
+          <div class="display-money-show"><span>¥{{$costs->sum('amount')+$tasks->sum('amount')}}</span></div>
         </div>
         <div class="display-money-pay">
           <div>あなたが支払う金額</div>
-          <div class="display-money-show"><span></span></div>
+          <div class="display-money-show"><span>¥{{( ($costs->sum('amount')+$tasks->sum('amount'))/$event->count_members() ) - App\Task::where('event_id', $event->id)->where('bidder_id', Auth::user()->id)->sum('amount') - App\Cost::where('event_id', $event->id)->where('contributor_id', Auth::user()->id)->sum('amount') }}</span></div>
         </div>
       </div>
 

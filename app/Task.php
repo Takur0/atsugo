@@ -18,13 +18,15 @@ class Task extends Model
     }
     
     public function user(){
-      $bids = $this->bids();
+      $bids = $this->hasMany('App\Bid', 'task_id', 'id');
       $lowest_amount = $bids->min('amount');
-      $lowest_bids = Bid::where('amount', $lowest_amount)->get();
-      if($lowest_bids->count() == 1){
-        return User::where("id", $lowest_bids->bidder_id)->first();
-      } else {
-        return User::where("id", $lowest_bids->bidder_id)->first();
-      } 
+      $lowest_bids = Bid::where('amount', $lowest_amount)->where('task_id', $this->id)->first();
+      return User::where("id", $lowest_bids->bidder_id)->first();
+    }
+
+    public function salary(){
+      $bids = $this->hasMany('App\Bid', 'task_id', 'id');
+      $lowest_amount = $bids->min('amount');
+      return $lowest_amount;
     }
 }

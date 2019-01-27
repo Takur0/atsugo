@@ -25,6 +25,8 @@ class TasksController extends Controller
     $task = Task::where('id', $id)->first();
     if($task->bids->count() == $task->event->count_members()){
       $task->is_bided_by_all = true;
+      $task->bidder_id = $task->user()->id;
+      $task->amount = $task->salary();
       $task->save();
     }
 

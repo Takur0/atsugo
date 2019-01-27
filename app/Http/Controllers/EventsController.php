@@ -62,6 +62,7 @@ class EventsController extends Controller
 
   public function destroy($id){
     $event = Event::where('id', $id)->first();
+    $joins = Join::where('event_id', $id)->delete();
     $tasks = Task::where('event_id', $event->id);
     foreach($tasks as $task){
       $bids = Bid::where('task_id', $task->id)->delete();
